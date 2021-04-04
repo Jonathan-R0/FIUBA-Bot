@@ -5,7 +5,9 @@ import { AvailableWindow } from './AvailableWindow/AvailableWindow';
 import { PassedWindow } from './PassedWindow/PassedWindow'
 import { RemainingWindow } from './RemainingWindow/RemainingWindow'
 import { HelpWindow } from "./HelpWindow/HelpWindow"
-import { UpdateWindow } from "./UpdateWindow/UpdateWindow"
+import { RegisterWindow } from "./RegisterWindow/RegisterWindow"
+import { UpdateWindow } from './UpdateWindow/UpdateWindow';
+
 
 interface ResultsWindowProps {
     renderId: string,
@@ -56,6 +58,12 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                 return (
                     <div className="resultsWindowBox">
                         <UpdateWindow key={"updateWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} handleUpdateClick={this.props.handleUpdateClick} />
+                    </div>
+                );
+            case ("register"):
+                return (
+                    <div className="resultsWindowBox">
+                        <RegisterWindow key={"RegisterWindow" + this.nextUniqueRenderId.toString()}></RegisterWindow>
                     </div>
                 );
             default:

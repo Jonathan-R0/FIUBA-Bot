@@ -6,13 +6,15 @@ import { Login } from "./Login/Login"
 import CarreerMenu from "./CarreerMenu/CarreerMenu"
 import ApiHandler from "./API/ApiHandler"
 import { textChangeRangeIsUnchanged } from 'typescript';
+import Register from "./Register/Register"
 
 interface ApplicationState {
     renderResults: string,
     studentId: string,
     carreerId: number,
-    carreerIds: number[]
-    loggedIn: boolean
+    carreerIds: number[],
+    loggedIn: boolean,
+    userID: string | undefined
 }
 
 export class Application extends React.Component<{}, ApplicationState> {
@@ -24,7 +26,8 @@ export class Application extends React.Component<{}, ApplicationState> {
             studentId: "",
             carreerId: 12,
             carreerIds: [],
-            renderResults: ""
+            renderResults: "",
+            userID: ""
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
@@ -71,6 +74,9 @@ export class Application extends React.Component<{}, ApplicationState> {
                 <Title />
                 <Login successFulLoginHandler={this.handleSuccessfulLogin} initialSentInput={this.state.loggedIn} />
                 {this.state.loggedIn ? <CarreerMenu onClick={this.changeCurrentCarreerId} studentId={this.state.studentId} selectedCarreerId={this.state.carreerId} loggedIn={this.state.loggedIn} carreerIds={this.state.carreerIds} /> : ""}
+                <div>
+                    <Register onClick={() => { this.handleButtonClick("register") }}></Register>
+                </div>
                 <div>
                     <ButtonMenu onClick={this.handleButtonClick} enabledMenu={this.state.loggedIn && this.state.carreerId != 12} />
                     <ResultsWindow renderId={this.state.renderResults} studentId={this.state.studentId} carreerId={this.state.carreerId} handleUpdateClick={this.handleUpdateClick} />

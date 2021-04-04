@@ -1,0 +1,8 @@
+.registerButton {
+    position: absolute;
+    top: 70px;
+    left: 450px;
+    width: 160px;
+    height: 55px;
+    font-size: 25px;
+}
