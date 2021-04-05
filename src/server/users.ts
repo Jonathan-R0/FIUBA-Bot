@@ -17,6 +17,9 @@ export class Users {
         this.universityIds[uniId] = userId;
     }
 
+    registerWithoutId(padron: string) {
+        this.universityIds[padron] = padron;
+    }
     /**
      * 
      * @param uniId Returns the discord id.
@@ -41,6 +44,7 @@ export class Users {
             };
         });
     }
+
 
     /**
      * 
@@ -106,6 +110,10 @@ export class Users {
         this.careers[id] = this.careers[id].concat(roleids);
     }
 
+    public addFirstCareer(id: string, roleids: number[]): void {
+        this.careers[id] = roleids;
+        this.subjects[id] = [];
+    }
     /**
      * 
      * @param id User's id.

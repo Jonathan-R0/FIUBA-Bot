@@ -163,6 +163,27 @@ router.post('/data/:userid/:studentData', (req: any, res: any) => {
         res.send(false);
     }
 });
+function createCarrerCode(carrers: string[]): number[] {
+    let careerIds: { [code: string]: number } = { "Sistemas": 11, "Agrimensura": 0, "Alimentos": 1, "Civil": 2, "Electrica": 3, "Electronica": 4, "Industrial": 5, "Informatica": 6, "Mecanica": 7, "Naval": 8, "Petroleo": 9, "Quimica": 10 }
+    let data: number[] = [];
+    carrers.forEach((carrer: string) => { data.push(careerIds[carrer]) });
+    return data;
+}
+router.post('/create/:studentData', (req: any, res: any) => {
+    try {
+        let studentData: any = JSON.parse(req.params["studentData"]);
+        let padron: string = studentData.padron;
+        let carrers: string[] = studentData.studying;
+        let data: number[] = createCarrerCode(carrers);
+        bot.users.registerWithoutId(padron);
+        bot.users.addFirstCareer(padron, data);
+        setTimeout(() => {
+            res.send(true);
+        }, 3000);
+    } catch (e) {
+        res.send(false);
+    }
+});
 
 router.delete('/', (req: any, res: any) => {
     res.send("Hello Delete!");

@@ -63,7 +63,7 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
             case ("register"):
                 return (
                     <div className="resultsWindowBox">
-                        <RegisterWindow key={"RegisterWindow" + this.nextUniqueRenderId.toString()}></RegisterWindow>
+                        <RegisterWindow key={"RegisterWindow" + this.nextUniqueRenderId.toString()} handleUpdateClick={this.props.handleUpdateClick}></RegisterWindow>
                     </div>
                 );
             default:

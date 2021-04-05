@@ -132,4 +132,4 @@ export class DiscordCredentials implements Credentials {
      * @returns Returns the dictionary of career ids.
      */
     public getCareerIds(): { [code: string]: number } { return this.careerIds; }
-}    
+}

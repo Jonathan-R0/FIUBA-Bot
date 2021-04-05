@@ -27,4 +27,8 @@ export default class ApiHandler {
         return await axios.post(`http://localhost:2000/data/${studentId}/${JSON.stringify(studentData)}`);
     }
 
+
+    async registerData(studentData: object) {
+        return await axios.post(`http://localhost:2000/create/${JSON.stringify(studentData)}`);
+    }
 }
