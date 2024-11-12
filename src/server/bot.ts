@@ -278,9 +278,9 @@ export class Bot {
      */
     private getUserData(userID: string): { [data: string]: { [career: number]: { [careerData: string]: any } } } {
         var userData: { [data: string]: { [career: number]: any } } = { "data": {} };
+        console.log(this.users);
         var userCareers: number[] = this.users.getCareers(userID);
         var allGraphs: SubjectGraph[] = this.filler.parseAllText();
-        console.log("HOLA: " + userID);
         userCareers.forEach((career: number) => {
             userData["data"][career] = this.getUserCareerData(userID, career, allGraphs);
         });

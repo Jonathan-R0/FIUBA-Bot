@@ -1,0 +1,30 @@
+.RegisterWindow {
+    font-size: 30px;
+    color: snow;
+    margin-top: 35px;
+    margin-bottom: 55px;
+    margin-left: 15px;
+}
+
+.title {
+    font-size: 60px;
+    color: snow;
+    margin-top: 35px;
+    margin-bottom: 50px;
+    margin-left: 15px;
+}
+
+.padron {
+    font-size: 60px;
+    color: snow;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.PadronInput {
+    width: 500px;
+    height: 60px;
+    font-size: 40px;
+    margin-left: 25px;
+}

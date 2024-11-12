@@ -1,7 +1,7 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent } from 'react';
 import { textChangeRangeIsUnchanged } from 'typescript';
-import "./Login.css"
-import ApiHandler from "../API/ApiHandler"
+import "./Login.css";
+import ApiHandler from "../API/ApiHandler";
 import { MouseEventHandler } from 'react';
 
 interface LoginState {
